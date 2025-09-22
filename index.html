@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz App</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+
+  <div class="start-box">
+    <h1>🎯 Quiz Challenge</h1>
+    <label for="category">Choose Category:</label>
+    <select id="category">
+      <option value="9">General Knowledge</option>
+      <option value="18">Science: Computers</option>
+      <option value="21">Sports</option>
+      <option value="23">History</option>
+      <option value="27">Animals</option>
+    </select>
+
+    <label for="difficulty">Choose Level:</label>
+    <select id="difficulty">
+      <option value="easy">Easy</option>
+      <option value="medium">Medium</option>
+      <option value="hard">Hard</option>
+    </select>
+
+    <button id="start-btn">Start Quiz</button>
+  </div>
+
+  <!-- Quiz Box -->
+  <div class="quiz-box" style="display:none;">
+    <h1>Quiz Challenge</h1>
+    <p id="timer">Time: 30s</p>
+    <div id="question">Question will appear here</div>
+    <div id="options"></div>
+    <button id="next-btn">Next</button>
+    <div id="result"></div>
+    <button id="restart-btn">Restart Quiz</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
