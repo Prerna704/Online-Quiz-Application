@@ -1,46 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Quiz App</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quiz App</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
+<!-- ===== LOGIN / REGISTER ===== -->
+<div class="auth-box" id="auth-box">
+  <h1>🔑 Login / Register</h1>
+  <input type="text" id="username" placeholder="Enter your name">
+  <input type="email" id="email" placeholder="Enter your email">
+  <input type="password" id="password" placeholder="Enter password">
+  <button id="login-btn">Login</button>
+</div>
 
-  <div class="start-box">
-    <h1>🎯 Quiz Challenge</h1>
-    <label for="category">Choose Category:</label>
-    <select id="category">
-      <option value="9">General Knowledge</option>
-      <option value="18">Science: Computers</option>
-      <option value="21">Sports</option>
-      <option value="23">History</option>
-      <option value="27">Animals</option>
-    </select>
-
-    <label for="difficulty">Choose Level:</label>
-    <select id="difficulty">
-      <option value="easy">Easy</option>
-      <option value="medium">Medium</option>
-      <option value="hard">Hard</option>
-    </select>
-
-    <button id="start-btn">Start Quiz</button>
+<!-- ===== DASHBOARD + CONTENT ===== -->
+<div class="main-container" style="display:none;">
+  <!-- Sidebar -->
+  <div class="dashboard-box">
+    <div class="profile">
+      <div class="profile-pic-container">
+        <img id="profile-display" src="https://via.placeholder.com/80" alt="Profile Photo">
+        <label for="profile-pic" class="upload-icon"><i class="fas fa-pencil-alt"></i></label>
+        <input type="file" id="profile-pic" style="display:none;">
+      </div>
+      <h3 id="user-display">User</h3>
+      <p id="email-display">user@example.com</p>
+    </div>
+    <div class="stats">
+      <p>Total Tests: <span id="total-tests">0</span></p>
+      <div id="test-history"></div>
+    </div>
+    <button id="logout-btn">Logout</button>
   </div>
 
-  <!-- Quiz Box -->
-  <div class="quiz-box" style="display:none;">
-    <h1>Quiz Challenge</h1>
-    <p id="timer">Time: 30s</p>
-    <div id="question">Question will appear here</div>
-    <div id="options"></div>
-    <button id="next-btn">Next</button>
-    <div id="result"></div>
-    <button id="restart-btn">Restart Quiz</button>
-  </div>
+  <!-- Main Content -->
+  <div class="content">
+    <!-- Filter -->
+    <div class="filter-box" style="display:none;">
+      <h1>🎓 Who are you?</h1>
+      <select id="user-type">
+        <option value="">-- Select --</option>
+        <option value="school">School Student</option>
+        <option value="college">College Student</option>
+        <option value="professional">Professional</option>
+      </select>
+      <button id="next-filter-btn">Next</button>
+    </div>
 
-  <script src="script.js"></script>
+    <!-- Subject -->
+    <div class="subject-box" style="display:none;">
+      <h1>📚 Choose Class/Stream & Subject</h1>
+      <div id="stream-container"></div>
+      <div id="subject-container"></div>
+      <button id="go-quiz-btn">Go to Quiz</button>
+    </div>
+
+    <!-- Start Box -->
+    <div class="start-box" style="display:none;">
+      <h1>🎯 Quiz Challenge</h1>
+      <label for="difficulty">Choose Level:</label>
+      <select id="difficulty">
+        <option value="easy">Easy</option>
+        <option value="medium">Medium</option>
+        <option value="hard">Hard</option>
+      </select>
+      <button id="start-btn">Start Quiz</button>
+    </div>
+
+    <!-- Quiz Box -->
+    <div class="quiz-box" style="display:none;">
+      <h1>Quiz Challenge</h1>
+      <p id="timer">Time: 30s</p>
+      <div id="question">Question will appear here</div>
+      <div id="options"></div>
+      <button id="next-btn">Next</button>
+      <div id="result"></div>
+      <button id="restart-btn">Finish & Go Dashboard</button>
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
