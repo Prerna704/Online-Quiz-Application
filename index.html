@@ -9,16 +9,34 @@
 </head>
 <body>
 
-<!-- ===== LOGIN / REGISTER ===== -->
+<!--AUTHENTICATION BOX-->
 <div class="auth-box" id="auth-box">
-  <h1>🔑 Login / Register</h1>
-  <input type="text" id="username" placeholder="Enter your name">
-  <input type="email" id="email" placeholder="Enter your email">
-  <input type="password" id="password" placeholder="Enter password">
-  <button id="login-btn">Login</button>
+  <div class="auth-tabs">
+    <button class="tab-btn active" id="login-tab">Login</button>
+    <button class="tab-btn" id="signup-tab">Sign Up</button>
+  </div>
+  
+  <!-- Login Form -->
+  <div class="auth-form active" id="login-form">
+    <h1>🔑 Login to Your Account</h1>
+    <input type="email" id="login-email" placeholder="Enter your email">
+    <input type="password" id="login-password" placeholder="Enter password">
+    <button id="login-btn">Login</button>
+    <p class="auth-switch">Don't have an account? <span id="go-to-signup">Sign Up</span></p>
+  </div>
+  
+  <!-- Sign Up Form -->
+  <div class="auth-form" id="signup-form">
+    <h1>🚀 Create New Account</h1>
+    <input type="text" id="signup-username" placeholder="Enter your name">
+    <input type="email" id="signup-email" placeholder="Enter your email">
+    <input type="password" id="signup-password" placeholder="Create password">
+    <button id="signup-btn">Sign Up</button>
+    <p class="auth-switch">Already have an account? <span id="go-to-login">Login</span></p>
+  </div>
 </div>
 
-<!-- ===== DASHBOARD + CONTENT ===== -->
+<!--  DASHBOARD + CONTENT-->
 <div class="main-container" style="display:none;">
   <!-- Sidebar -->
   <div class="dashboard-box">
@@ -83,7 +101,7 @@
       <button id="restart-btn">Finish & Go Dashboard</button>
     </div>
   </div>
-</div>
+</div> 
 
 <script src="script.js"></script>
 </body>

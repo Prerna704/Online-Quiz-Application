@@ -1,21 +1,25 @@
-/* ===== Body & Background Animation ===== */
+/*  Background Animation */
 body {
   font-family:"Poppins", sans-serif;
   margin:0;
   padding:0;
-  animation: bgChange 30s linear infinite; /* 30s me ek cycle, continuously repeat */
+  animation: bgChange 30s linear infinite;
 }
 
 /* Keyframes for background color change */
 @keyframes bgChange {
-  0%   { background-color: #ff9a9e; }
-  25%  { background-color: #fad0c4; }
+  0%   { background-color: #83cb77; }
+  25%  { background-color: #f5a38c; }
+  25%  { background-color: #7cb0d0; }
+  35%  { background-color: #70a589; }
+  50%  { background-color: #7c3c2b; }
+  70%  { background-color: #cf7ca7; }
   50%  { background-color: #a18cd1; }
-  75%  { background-color: #fbc2eb; }
-  100% { background-color: #ff9a9e; }
+  75%  { background-color: #c8b175; }
+  100% { background-color: #6a313a; }
 }
 
-/* ===== AUTH BOX ===== */
+/*  AUTH BOX */
 .auth-box {
   width:400px;
   background:white;
@@ -29,21 +33,83 @@ body {
   transform:translate(-50%,-50%);
 }
 
+.auth-tabs {
+  display: flex;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #f0f0f0;
+}
+
+.tab-btn {
+  flex: 1;
+  padding: 12px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.tab-btn.active {
+  color: #2575fc;
+  border-bottom: 3px solid #2575fc;
+}
+
+.auth-form {
+  display: none;
+}
+
+.auth-form.active {
+  display: block;
+}
+
 .auth-box input, .auth-box button {
   width:100%;
   margin:10px 0;
-  padding:10px;
+  padding:12px;
   border-radius:8px;
+  border: 1px solid #ddd;
+  box-sizing: border-box;
 }
 
-/* ===== MAIN CONTAINER ===== */
+.auth-box button {
+  background: #2575fc;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  transition: background 0.2s ease;
+}
+
+.auth-box button:hover {
+  background: #1a67e8;
+}
+
+.auth-switch {
+  margin-top: 15px;
+  font-size: 14px;
+  color: #666;
+}
+
+.auth-switch span {
+  color: #2575fc;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.auth-switch span:hover {
+  color: #1a67e8;
+}
+
+/*MAIN CONTAINER  */
 .main-container {
   display:flex;
   min-height:100vh;
   transition: all 0.3s ease;
 }
 
-/* ===== DASHBOARD ===== */
+/* DASHBOARD  */
 .dashboard-box {
   width:250px;
   background:#1f1f1f;
@@ -101,7 +167,7 @@ body {
   border:2px solid white;
 }
 
-/* ===== STATS ===== */
+/* STATS */
 .stats {
   width:100%;
   margin-top:20px;
@@ -118,7 +184,7 @@ body {
   padding-left:5px;
 }
 
-/* ===== Logout Button ===== */
+/*  Logout Button */
 .dashboard-box button {
   width:100%;
   margin-top:20px;
@@ -126,7 +192,7 @@ body {
   border:none;
   border-radius:8px;
   background:#ff4b2b;
-  color:white;
+  color:rgb(13, 13, 13);
   cursor:pointer;
   transition: all 0.3s ease;
 }
@@ -135,14 +201,14 @@ body {
   opacity:0.9;
 }
 
-/* ===== Content Area ===== */
+/*Content Area*/
 .content {
   flex:1;
   padding:20px;
   transition:all 0.3s ease;
 }
 
-/* ===== Boxes ===== */
+/*Boxes*/
 .quiz-box, .start-box, .filter-box, .subject-box {
   background:white;
   padding:25px;
@@ -154,15 +220,15 @@ body {
   transition:all 0.3s ease;
 }
 
-/* ===== Inputs & Buttons ===== */
+/*Inputs & Buttons*/
 input, select, button {
   padding:10px;
   border-radius:8px;
-  border:1px solid #ccc;
+  border:1px solid #cccccc;
   margin:8px 0;
 }
 
-/* ===== Quiz Options ===== */
+/*Quiz Options */
 .option {
   background:#f1f1f1;
   margin:8px 0;
@@ -174,7 +240,7 @@ input, select, button {
 }
 
 .option:hover {
-  background:#e6e6e6;
+  background:#f8f4f4;
 }
 
 .correct {
@@ -188,14 +254,14 @@ input, select, button {
 }
 
 .active-option {
-  box-shadow:0 0 10px #2575fc;
+  box-shadow:0 0 10px #a1bff3;
   transform:scale(1.02);
 }
 
-/* ===== Timer & Result ===== */
+/* Timer & Result */
 #timer {
   font-weight:bold;
-  color:#ff5722;
+  color:#b33516;
   margin-bottom:10px;
 }
 
@@ -204,4 +270,23 @@ input, select, button {
   font-weight:600;
   margin-top:15px;
   display:none;
+}
+
+/* Success Message */
+.success-message {
+  background: #d4edda;
+  color: #155724;
+  padding: 10px;
+  border-radius: 5px;
+  margin: 10px 0;
+  border: 1px solid #c3e6cb;
+}
+
+.error-message {
+  background: #f8d7da; 
+  color: #721c24;
+  padding: 10px;
+  border-radius: 5px;
+  margin: 10px 0;
+  border: 1px solid #f5c6cb;
 }
