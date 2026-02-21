@@ -1,0 +1,207 @@
+/*  AUTH BOX REDESIGN - Space Adventure Theme */
+.auth-wrapper {
+    display: flex;
+    width: 900px;
+    max-width: 95%;
+    min-height: 550px;
+    background: rgba(18, 11, 43, 0.95);
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.auth-illustration {
+    flex: 1.2;
+    position: relative;
+    background: radial-gradient(circle at top right, #301b6b, #120b2b 70%);
+    display: flex;
+    align-items: flex-end;
+    padding: 40px;
+    color: white;
+    overflow: hidden;
+}
+
+/* CSS Space Effect */
+.auth-illustration::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        radial-gradient(1px 1px at 20px 30px, #eee, rgba(0, 0, 0, 0)),
+        radial-gradient(1px 1px at 40px 70px, #fff, rgba(0, 0, 0, 0)),
+        radial-gradient(1.5px 1.5px at 50px 160px, #ddd, rgba(0, 0, 0, 0)),
+        radial-gradient(2px 2px at 90px 40px, #fff, rgba(0, 0, 0, 0)),
+        radial-gradient(1.5px 1.5px at 130px 80px, #eee, rgba(0, 0, 0, 0)),
+        radial-gradient(1px 1px at 160px 120px, #ddd, rgba(0, 0, 0, 0));
+    background-repeat: repeat;
+    background-size: 200px 200px;
+    opacity: 0.3;
+}
+
+/* "Planet" effect */
+.auth-illustration::after {
+    content: '';
+    position: absolute;
+    top: -100px;
+    left: -50px;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, #5b21b6, transparent 70%);
+    filter: blur(50px);
+    opacity: 0.4;
+    z-index: 0;
+}
+
+.illustration-content {
+    position: relative;
+    z-index: 1;
+}
+
+.illustration-content h1 {
+    font-size: 32px;
+    font-weight: 800;
+    margin-bottom: 10px;
+    line-height: 1.2;
+}
+
+.illustration-content p {
+    font-size: 16px;
+    opacity: 0.8;
+    max-width: 300px;
+}
+
+.auth-container {
+    flex: 1;
+    background: #1a1a2e;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.auth-form {
+    display: none;
+}
+
+.auth-form.active {
+    display: block;
+}
+
+.auth-tabs {
+    display: flex;
+    margin-bottom: 30px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.tab-btn {
+    flex: 1;
+    padding: 10px;
+    background: none;
+    border: none;
+    color: #888;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.tab-btn.active {
+    color: #a78bfa;
+    border-bottom: 2px solid #a78bfa;
+}
+
+.auth-form h1 {
+    color: white;
+    font-size: 24px;
+    margin-bottom: 5px;
+    text-align: left;
+}
+
+.form-subtitle {
+    color: #888;
+    font-size: 14px;
+    margin-bottom: 25px;
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.auth-wrapper input {
+    width: 100%;
+    background: #16213e;
+    border: 1px solid #2e3a59;
+    padding: 12px 15px;
+    border-radius: 12px;
+    color: white;
+    font-size: 14px;
+    box-sizing: border-box;
+    transition: border-color 0.3s;
+}
+
+.auth-wrapper input:focus {
+    outline: none;
+    border-color: #a78bfa;
+}
+
+.gradient-btn {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(90deg, #5b21b6, #3b82f6);
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: transform 0.2s, opacity 0.2s;
+}
+
+.gradient-btn:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+}
+
+.auth-switch {
+    margin-top: 25px;
+    font-size: 13px;
+    color: #888;
+    text-align: center;
+}
+
+.auth-switch span {
+    color: #a78bfa;
+    cursor: pointer;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+@media (max-width: 768px) {
+    .auth-wrapper {
+        flex-direction: column;
+        width: 400px;
+        height: auto;
+        min-height: 0;
+    }
+
+    .auth-illustration {
+        padding: 30px;
+        height: 180px;
+    }
+
+    .illustration-content h1 {
+        font-size: 20px;
+    }
+
+    .illustration-content p {
+        font-size: 12px;
+    }
+}

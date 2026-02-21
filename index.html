@@ -1,108 +1,187 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Quiz App</title>
-<link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz App</title>
+  <link rel="stylesheet" href="variables.css">
+  <link rel="stylesheet" href="auth.css">
+  <link rel="stylesheet" href="dashboard.css">
+  <link rel="stylesheet" href="quiz.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
+
 <body>
+  <!-- LOADING OVERLAY -->
+  <div id="loading-overlay" style="display:none;">
+    <div class="loader-content">
+      <div class="spinner"></div>
+      <p>Fetching Questions from Starbase...</p>
+    </div>
+  </div>
 
-<!--AUTHENTICATION BOX-->
-<div class="auth-box" id="auth-box">
-  <div class="auth-tabs">
-    <button class="tab-btn active" id="login-tab">Login</button>
-    <button class="tab-btn" id="signup-tab">Sign Up</button>
-  </div>
-  
-  <!-- Login Form -->
-  <div class="auth-form active" id="login-form">
-    <h1>🔑 Login to Your Account</h1>
-    <input type="email" id="login-email" placeholder="Enter your email">
-    <input type="password" id="login-password" placeholder="Enter password">
-    <button id="login-btn">Login</button>
-    <p class="auth-switch">Don't have an account? <span id="go-to-signup">Sign Up</span></p>
-  </div>
-  
-  <!-- Sign Up Form -->
-  <div class="auth-form" id="signup-form">
-    <h1>🚀 Create New Account</h1>
-    <input type="text" id="signup-username" placeholder="Enter your name">
-    <input type="email" id="signup-email" placeholder="Enter your email">
-    <input type="password" id="signup-password" placeholder="Create password">
-    <button id="signup-btn">Sign Up</button>
-    <p class="auth-switch">Already have an account? <span id="go-to-login">Login</span></p>
-  </div>
-</div>
-
-<!--  DASHBOARD + CONTENT-->
-<div class="main-container" style="display:none;">
-  <!-- Sidebar -->
-  <div class="dashboard-box">
-    <div class="profile">
-      <div class="profile-pic-container">
-        <img id="profile-display" src="https://via.placeholder.com/80" alt="Profile Photo">
-        <label for="profile-pic" class="upload-icon"><i class="fas fa-pencil-alt"></i></label>
-        <input type="file" id="profile-pic" style="display:none;">
+  <!--AUTHENTICATION WRAPPER-->
+  <div class="auth-wrapper" id="auth-box">
+    <div class="auth-illustration">
+      <div class="illustration-content">
+        <h1>SIGN IN TO YOUR ADVENTURE!</h1>
+        <p>Exploration starts here. Log in to start your quiz journey through the stars.</p>
       </div>
-      <h3 id="user-display">User</h3>
-      <p id="email-display">user@example.com</p>
     </div>
-    <div class="stats">
-      <p>Total Tests: <span id="total-tests">0</span></p>
-      <div id="test-history"></div>
+
+    <div class="auth-container">
+      <div class="auth-tabs">
+        <button class="tab-btn active" id="login-tab">Login</button>
+        <button class="tab-btn" id="signup-tab">Sign Up</button>
+      </div>
+
+      <!-- Login Form -->
+      <div class="auth-form active" id="login-form">
+        <h1>SIGN IN</h1>
+        <p class="form-subtitle">Sign in with email address</p>
+        <div class="input-group">
+          <input type="email" id="login-email" placeholder="Yourname@gmail.com">
+        </div>
+        <div class="input-group">
+          <input type="password" id="login-password" placeholder="Enter password">
+        </div>
+        <button id="login-btn" class="gradient-btn">Sign in</button>
+
+
+        <p class="auth-switch">Don't have an account? <span id="go-to-signup">Sign Up</span></p>
+      </div>
+
+      <!-- Sign Up Form -->
+      <div class="auth-form" id="signup-form">
+        <h1>SIGN UP</h1>
+        <p class="form-subtitle">Create your astronaut profile</p>
+        <div class="input-group">
+          <input type="text" id="signup-username" placeholder="Enter your name">
+        </div>
+        <div class="input-group">
+          <input type="email" id="signup-email" placeholder="Yourname@gmail.com">
+        </div>
+        <div class="input-group">
+          <input type="password" id="signup-password" placeholder="Create password">
+        </div>
+        <button id="signup-btn" class="gradient-btn">Sign up</button>
+        <p class="auth-switch">Already have an account? <span id="go-to-login">Login</span></p>
+      </div>
     </div>
-    <button id="logout-btn">Logout</button>
   </div>
 
-  <!-- Main Content -->
-  <div class="content">
-    <!-- Filter -->
-    <div class="filter-box" style="display:none;">
-      <h1>🎓 Who are you?</h1>
-      <select id="user-type">
-        <option value="">-- Select --</option>
-        <option value="school">School Student</option>
-        <option value="college">College Student</option>
-        <option value="professional">Professional</option>
-      </select>
-      <button id="next-filter-btn">Next</button>
+  <!--  DASHBOARD + CONTENT-->
+  <div class="main-container" style="display:none;">
+    <!-- Sidebar -->
+    <div class="dashboard-box">
+      <div class="profile">
+        <div class="profile-pic-container">
+          <img id="profile-display" src="https://via.placeholder.com/80" alt="Profile Photo">
+          <label for="profile-pic" class="upload-icon"><i class="fas fa-pencil-alt"></i></label>
+          <input type="file" id="profile-pic" style="display:none;">
+        </div>
+        <h3 id="user-display">User</h3>
+        <p id="email-display">user@example.com</p>
+        <div class="user-rank-badge">
+          <i class="fas fa-trophy"></i> Rank: <span id="user-rank">--</span>
+        </div>
+      </div>
+
+      <div class="stats">
+        <div class="history-section">
+          <div class="tab-header">
+            <span class="active" id="btn-history">Tests</span>
+            <span id="btn-leaderboard">Global Rank</span>
+          </div>
+          <div id="test-history" class="tab-content active"></div>
+          <div id="leaderboard" class="tab-content"></div>
+        </div>
+        <p style="margin-top: 15px; font-size: 13px;">Total Tests: <span id="total-tests">0</span></p>
+      </div>
+
+      <button id="settings-btn" class="secondary-btn"><i class="fas fa-cog"></i> Settings</button>
+      <button id="logout-btn">Logout</button>
     </div>
 
-    <!-- Subject -->
-    <div class="subject-box" style="display:none;">
-      <h1>📚 Choose Class/Stream & Subject</h1>
-      <div id="stream-container"></div>
-      <div id="subject-container"></div>
-      <button id="go-quiz-btn">Go to Quiz</button>
-    </div>
+    <!-- Main Content -->
+    <div class="content">
+      <!-- Settings View -->
+      <div class="settings-box" style="display:none;">
+        <h1>⚙️ Profile Settings</h1>
+        <div class="settings-form">
+          <label for="edit-username">Update Username</label>
+          <div class="input-group">
+            <input type="text" id="edit-username" placeholder="New Username">
+          </div>
+          <label for="edit-password">Update Password</label>
+          <div class="input-group">
+            <input type="password" id="edit-password" placeholder="New Password">
+          </div>
+          <div class="settings-actions">
+            <button id="save-profile-btn" class="gradient-btn">Save Changes</button>
+            <button id="cancel-settings-btn" class="cancel-btn">Cancel</button>
+          </div>
+        </div>
+      </div>
 
-    <!-- Start Box -->
-    <div class="start-box" style="display:none;">
-      <h1>🎯 Quiz Challenge</h1>
-      <label for="difficulty">Choose Level:</label>
-      <select id="difficulty">
-        <option value="easy">Easy</option>
-        <option value="medium">Medium</option>
-        <option value="hard">Hard</option>
-      </select>
-      <button id="start-btn">Start Quiz</button>
-    </div>
+      <!-- Filter -->
+      <div class="filter-box" style="display:none;">
+        <h1>🎓 Who are you?</h1>
+        <select id="user-type">
+          <option value="">-- Select --</option>
+          <option value="school">School Student</option>
+          <option value="college">College Student</option>
+          <option value="professional">Professional</option>
+        </select>
+        <button id="next-filter-btn">Next</button>
+      </div>
 
-    <!-- Quiz Box -->
-    <div class="quiz-box" style="display:none;">
-      <h1>Quiz Challenge</h1>
-      <p id="timer">Time: 30s</p>
-      <div id="question">Question will appear here</div>
-      <div id="options"></div>
-      <button id="next-btn">Next</button>
-      <div id="result"></div>
-      <button id="restart-btn">Finish & Go Dashboard</button>
+      <!-- Subject -->
+      <div class="subject-box" style="display:none;">
+        <h1>📚 Choose Class/Stream & Subject</h1>
+        <div id="stream-container"></div>
+        <div id="subject-container"></div>
+        <button id="go-quiz-btn">Go to Quiz</button>
+      </div>
+
+      <!-- Start Box -->
+      <div class="start-box" style="display:none;">
+        <h1>🎯 Quiz Challenge</h1>
+        <label for="difficulty">Choose Level:</label>
+        <select id="difficulty">
+          <option value="easy">Easy</option>
+          <option value="medium">Medium</option>
+          <option value="hard">Hard</option>
+        </select>
+        <button id="start-btn">Start Quiz</button>
+      </div>
+
+      <!-- Quiz Box -->
+      <div class="quiz-box" style="display:none;">
+        <h1>Quiz Challenge</h1>
+        <div id="question-palette"></div>
+        <p id="timer">Time: 30s</p>
+        <div id="question">Question will appear here</div>
+        <div id="options"></div>
+        <div class="quiz-controls">
+          <button id="prev-btn" style="display:none;">Previous</button>
+          <button id="save-next-btn">Save & Next</button>
+          <button id="submit-btn" style="display:none;">Submit Quiz</button>
+        </div>
+        <div id="result"></div>
+        <div id="detailed-feedback" style="display:none;"></div>
+        <button id="restart-btn">Finish & Go Dashboard</button>
+      </div>
     </div>
   </div>
-</div> 
 
-<script src="script.js"></script>
+  <script src="state.js"></script>
+  <script src="utils.js"></script>
+  <script src="dashboard.js"></script>
+  <script src="quiz.js"></script>
+  <script src="auth.js"></script>
+  <script src="main.js"></script>
 </body>
+
 </html>
